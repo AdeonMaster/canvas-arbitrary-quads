@@ -1,0 +1,58 @@
+{
+  "name": "canvas-arbitrary-quads",
+  "version": "1.0.0",
+  "description": "Map canvas image quad to another using bilinear interpolation or 3D perspective transformation",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AdeonMaster/canvas-arbitrary-quads.git"
+  },
+  "homepage": "https://adeonmaster.github.io/canvas-arbitrary-quads/",
+  "bugs": {
+    "url": "https://github.com/AdeonMaster/canvas-arbitrary-quads/issues"
+  },
+  "keywords": [
+    "canvas",
+    "arbitrary",
+    "quads",
+    "map",
+    "bilinear",
+    "interpolation",
+    "3D",
+    "perspective",
+    "transform"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "esnext": "src/index.js",
+  "sideEffects": false,
+  "scripts": {
+    "build:lib": "babel src --out-dir lib --ignore src/__tests__/",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es --ignore src/__tests__/",
+    "build": "npm run eslint && npm run jest && npm run build:lib && npm run build:es",
+    "eslint": "eslint ./src",
+    "eslint:fix": "eslint --fix ./src",
+    "jest": "jest --passWithNoTests"
+  },
+  "author": "AdeonMaster",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+    "@babel/preset-env": "^7.7.6",
+    "babel-eslint": "^10.0.3",
+    "babel-plugin-transform-imports": "^2.0.0",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "d3": "^5.14.2",
+    "node-matrices": "^1.0.0"
+  },
+  "directories": {
+    "lib": "lib"
+  }
+}
