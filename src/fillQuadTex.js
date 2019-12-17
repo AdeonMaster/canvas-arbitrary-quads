@@ -1,12 +1,12 @@
 import * as d3 from 'd3';
 
-import { seamOverlap, FILL_METHOD } from '../constants';
+import { SEAM_OVERLAP, FILL_METHOD } from './constants';
 import projectPoint from './projectPoint';
 import forwardProjectionMatrixForPoints from './forwardProjectionMatrixForPoints';
 import fillTriTex from './fillTriTex';
 
 // See figure: https://github.com/bschwind/Face-Squash
-const lerpQuad = (quad) => {
+const lerpQuad = quad => {
   const p01 = d3.interpolate(quad[0], quad[1]);
   const p32 = d3.interpolate(quad[3], quad[2]);
 
@@ -15,11 +15,13 @@ const lerpQuad = (quad) => {
 
 // return the triangles to fill the cell at the given row/column
 const rowColTris = (row, col, { lerp, projection }, tiles) => {
-  const pad = seamOverlap; // we add padding to remove tile seams
+  const pad = SEAM_OVERLAP; // we add padding to remove tile seams
   let p;
+
   if (lerp) {
     p = (r, c) => lerp(c / tiles, r / tiles);
   }
+
   if (projection) {
     p = (r, c) => projectPoint({ x: c / tiles, y: r / tiles }, projection);
   }

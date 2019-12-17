@@ -1,6 +1,6 @@
 import Matrix from 'node-matrices';
 
-const forwardProjectionMatrixForPoints = (points) => {
+const forwardProjectionMatrixForPoints = points => {
   const deltaX1 = points[1].x - points[2].x;
   const deltaX2 = points[3].x - points[2].x;
   const sumX = points[0].x - points[1].x + points[2].x - points[3].x;
@@ -17,7 +17,11 @@ const forwardProjectionMatrixForPoints = (points) => {
   const e = points[3].y - points[0].y + h * points[3].y;
   const f = points[0].y;
 
-  return new Matrix([a, b, c], [d, e, f], [g, h, 1]);
+  return new Matrix(
+    [a, b, c],
+    [d, e, f],
+    [g, h, 1],
+  );
 };
 
 export default forwardProjectionMatrixForPoints;

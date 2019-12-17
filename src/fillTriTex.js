@@ -2,11 +2,9 @@ import fillTexPath from './fillTexPath';
 
 const fillTriTex = (ctx, src, dst) => {
   ctx.beginPath();
-
   for (let i = 0, len = dst.length; i < len; ++i) {
     ctx.lineTo(dst[i].x, dst[i].y);
   }
-
   ctx.closePath();
 
   const [

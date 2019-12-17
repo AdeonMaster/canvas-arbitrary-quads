@@ -9,7 +9,9 @@
     "airbnb-base"
   ],
   "rules": {
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "arrow-parens": ["error", "as-needed"],
+    "linebreak-style": "off"
   },
   "env": {
     "browser": true,

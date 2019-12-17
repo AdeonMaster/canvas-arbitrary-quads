@@ -4,8 +4,8 @@
   Description: This package is Shaun Lebron's article adaptation for NPM
 */
 
-import fillQuadTex from './utils/fillQuadTex';
-import { tesselation, FILL_METHOD } from './constants';
+import { FILL_METHOD, TESSELATION } from './constants';
+import fillQuadTex from './fillQuadTex';
 
 export {
   FILL_METHOD,
@@ -17,7 +17,7 @@ export const drawArbitraryQuadImage = (ctx, texture, src, dst, method = FILL_MET
   ctx.fillStyle = pattern;
 
   fillQuadTex(ctx, src, dst, {
-    tiles: tesselation,
+    tiles: TESSELATION,
     method,
   });
 };
